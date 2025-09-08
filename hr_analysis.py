@@ -17,15 +17,11 @@ import matplotlib.font_manager as fm
 # plt.rcParams['font.family'] = 'Malgun Gothic'
 # plt.rcParams['axes.unicode_minus'] = False
 
-font_path = "./MALGUN.TTF"
-fontprop = fm.FontProperties(fname=font_path)
-
-# matplotlib 전역 폰트 적용
-plt.rc('font', family=fontprop.get_name())
-plt.rcParams['axes.unicode_minus'] = False
-
 st.set_page_config(page_title="퇴직율 대시보드", layout="wide")
-sns.set_theme(style="whitegrid", font=fontprop.get_name())
+sns.set_theme(style="whitegrid")
+
+rc('font', family='Malgun Gothic')  # Windows 기본 한글 폰트
+plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
 
 # 1) 데이터 로드
 @st.cache_data
@@ -94,6 +90,7 @@ if col_name in df.columns:
         ax3.set_ylabel("퇴직율(%)"); 
         ax3.bar_label(ax3.containers[0], fmt="%.1f")
         st.pyplot(fig3)
+
 
 
 
