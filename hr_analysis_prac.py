@@ -60,14 +60,14 @@ c1, c2 = st.columns(2)
 # (좌) 연령대와 퇴직율
 if "나이" in df.columns:
     tmp = df[["나이","퇴직"]].dropna().copy()
-    tmp['연령대'] = pd.cut(tmp['나이'], bins=[18, 29, 39, 49, 59, 69], labels=['20대', '30대', '40대', '50대', '60대'])
+    tmp['연령대'] = pd.cut(tmp['나이'], bins=[18, 29, 39, 49, 59, 69], labels=['20s', '30s', '40s', '50s', '60s'])
     age = tmp.groupby("연령대")["퇴직"].mean()*100
     with c1:
-        st.subheader("연령대와 퇴직율")
+        st.subheader("Ages and Resignation Rate")
         fig2, ax2 = plt.subplots(figsize=(6.5,4))
         sns.lineplot(x=age.index, y=age.values, marker="o", ax=ax2)
-        ax2.set_xlabel("연령대"); 
-        ax2.set_ylabel("퇴직율(%)")
+        ax2.set_xlabel("Ages"); 
+        ax2.set_ylabel("Resignation Rate(%)")
         st.pyplot(fig2)
 
 # (우) 야근정도별 퇴직율 (Yes/No 막대)
@@ -76,9 +76,10 @@ if col_name in df.columns:
     ot = (df.groupby(col_name)["퇴직"].mean()*100)
 #    ot.index = ot.index.map({"No":"없음","Yes":"있음"}).astype(str)
     with c2:
-        st.subheader("결혼 여부 별 퇴직율")
+        st.subheader("Marital status and Resignation Rate")
         fig3, ax3 = plt.subplots(figsize=(6.5,4))
         sns.barplot(x=ot.index, y=ot.values, ax=ax3)
-        ax3.set_ylabel("퇴직율(%)"); 
+        ax3.set_xlabel("Marital status"); 
+        ax3.set_ylabel("Resignation Rate(%)"); 
         ax3.bar_label(ax3.containers[0], fmt="%.1f")
         st.pyplot(fig3)
