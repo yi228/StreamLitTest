@@ -10,7 +10,7 @@ st.set_page_config(page_title="퇴직율 대시보드", layout="wide")
 sns.set_theme(style="whitegrid")
 
 font_dir = "./fonts"
-font_path = os.path.join(font_dir, "MALGUN.TTF")
+font_path = os.path.join(font_dir, "malgun.ttf")
 
 fontprop = fm.FontProperties(fname=font_path)
 
@@ -79,5 +79,6 @@ if col_name in df.columns:
         ax3.set_ylabel("Resignation Rate(%)"); 
         ax3.bar_label(ax3.containers[0], fmt="%.1f")
         st.pyplot(fig3)
+
 
 
