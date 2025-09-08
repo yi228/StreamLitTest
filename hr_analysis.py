@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 # import koreanize_matplotlib  # 한글/마이너스 자동 설정
-# import matplotlib.font_manager as fm
+import matplotlib.font_manager as fm
 
 # NanumGothic 폰트 경로를 직접 지정
 # font_path = "C:/Windows/Fonts/NanumGothic.ttf"
@@ -94,6 +94,7 @@ if col_name in df.columns:
         ax3.set_ylabel("퇴직율(%)"); 
         ax3.bar_label(ax3.containers[0], fmt="%.1f")
         st.pyplot(fig3)
+
 
 
 
