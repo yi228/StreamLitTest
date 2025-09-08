@@ -3,26 +3,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
-# import koreanize_matplotlib  # 한글/마이너스 자동 설정
-import matplotlib.font_manager as fm
-from matplotlib import rc
-
-# NanumGothic 폰트 경로를 직접 지정
-# font_path = "C:/Windows/Fonts/NanumGothic.ttf"
-# fontprop = fm.FontProperties(fname=font_path)
-# plt.rcParams["font.family"] = "NanumGothic"
-# plt.rcParams["axes.unicode_minus"] = False
-
-# 한글 폰트 설정
-# plt.rcParams['font.family'] = 'Malgun Gothic'
-# plt.rcParams['axes.unicode_minus'] = False
 
 st.set_page_config(page_title="퇴직율 대시보드", layout="wide")
-sns.set_theme(style="whitegrid")
-
-rc('font', family='Malgun Gothic')  # Windows 기본 한글 폰트
-plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
+sns.set_theme(style="whitegrid", font="Malgun Gothic")
 
 # 1) 데이터 로드
 @st.cache_data
@@ -91,11 +74,3 @@ if col_name in df.columns:
         ax3.set_ylabel("퇴직율(%)"); 
         ax3.bar_label(ax3.containers[0], fmt="%.1f")
         st.pyplot(fig3)
-
-
-
-
-
-
-
-
