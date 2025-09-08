@@ -7,19 +7,13 @@ import seaborn as sns
 st.set_page_config(page_title="퇴직율 대시보드", layout="wide")
 sns.set_theme(style="whitegrid")
 
-st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+font_dir = "./fonts"
+font_path = os.path.join(font_dir, "MALGUN.TTF")
 
-    /* 앱 전체 텍스트 */
-    * {
-        font-family: 'Noto Sans KR', sans-serif !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+fontprop = fm.FontProperties(fname=font_path)
 
-plt.rcParams['font.family'] = "Noto Sans KR"
-plt.rcParams['axes.unicode_minus'] = False
+plt.rcParams["font.family"] = fontprop.get_name()
+plt.rcParams["axes.unicode_minus"] = False
 
 # 1) 데이터 로드
 @st.cache_data
@@ -83,3 +77,4 @@ if col_name in df.columns:
         ax3.set_ylabel("Resignation Rate(%)"); 
         ax3.bar_label(ax3.containers[0], fmt="%.1f")
         st.pyplot(fig3)
+
