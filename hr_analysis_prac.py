@@ -8,8 +8,9 @@ st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
-    html, body, [class*="css"]  {
-        font-family: 'Noto Sans KR', sans-serif;
+    /* 앱 전체 텍스트 */
+    * {
+        font-family: 'Noto Sans KR', sans-serif !important;
     }
     </style>
     """, unsafe_allow_html=True)
