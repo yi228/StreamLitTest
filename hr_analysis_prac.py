@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
+import matplotlib.font_manager as fm
 
 st.set_page_config(page_title="퇴직율 대시보드", layout="wide")
 sns.set_theme(style="whitegrid")
@@ -77,4 +79,5 @@ if col_name in df.columns:
         ax3.set_ylabel("Resignation Rate(%)"); 
         ax3.bar_label(ax3.containers[0], fmt="%.1f")
         st.pyplot(fig3)
+
 
