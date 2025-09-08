@@ -4,6 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+st.set_page_config(page_title="퇴직율 대시보드", layout="wide")
+sns.set_theme(style="whitegrid")
+
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
@@ -15,8 +18,8 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.set_page_config(page_title="퇴직율 대시보드", layout="wide")
-sns.set_theme(style="whitegrid", font='Noto Sans KR')
+plt.rcParams['font.family'] = "Noto Sans KR"
+plt.rcParams['axes.unicode_minus'] = False
 
 # 1) 데이터 로드
 @st.cache_data
